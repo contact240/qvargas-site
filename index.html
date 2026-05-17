@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
-    :root{--black:#080808;--dark:#111114;--white:#FFFFFF;--offwhite:#F4F4F6;--silver:#B8BEC8;--blue:#7AB8E8;--grey:#888899;--border:rgba(255,255,255,0.1);}
+    :root{--black:#080808;--dark:#111114;--white:#FFFFFF;--silver:#B8BEC8;--blue:#7AB8E8;--grey:#888899;--border:rgba(255,255,255,0.1);}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{background:var(--black);color:var(--white);font-family:"Inter",sans-serif;overflow-x:hidden;}
@@ -22,6 +22,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .nav-btn{font-size:0.82rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:var(--white);color:var(--black);padding:0.6rem 1.6rem;text-decoration:none;border-radius:4px;transition:all 0.2s;white-space:nowrap;}
 .nav-btn:hover{background:var(--blue);color:var(--white);}
 
+/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:7rem 2rem 4rem;background:var(--black);position:relative;overflow:hidden;}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(122,184,232,0.07) 0%,transparent 65%);pointer-events:none;}
 .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.78rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(122,184,232,0.3);padding:0.4rem 1.2rem;border-radius:100px;margin-bottom:2rem;opacity:0;animation:fadeUp 0.6s 0.1s forwards;}
@@ -44,9 +45,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .proof-text{font-size:0.82rem;color:var(--grey);letter-spacing:0.1em;text-transform:uppercase;}
 .proof-text span{color:var(--white);font-weight:700;}
 
-.urgency{background:var(--blue);padding:0.9rem 2rem;text-align:center;}
-.urgency p{font-size:0.9rem;font-weight:800;color:var(--black);letter-spacing:0.05em;text-transform:uppercase;}
-
 .sec{padding:5rem 2rem;}
 .sec-inner{max-width:1100px;margin:0 auto;}
 .sec-center{max-width:680px;margin:0 auto;text-align:center;}
@@ -55,11 +53,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .sec-white .sec-label{color:#3A7AAA;}
 .sec-title{font-family:"Orbitron",sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;line-height:1.1;margin-bottom:1.2rem;}
 .sec-sub{font-size:clamp(1rem,2vw,1.15rem);line-height:1.75;}
-
 .sec-dark{background:var(--dark);}
 .sec-dark .sec-title{color:var(--white);}
 .sec-dark .sec-sub{color:var(--silver);}
-
 .sec-white{background:var(--white);}
 .sec-white .sec-title{color:var(--black);}
 .sec-white .sec-sub{color:#555566;}
@@ -69,15 +65,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .sec-dark .card:hover{transform:translateY(-4px);border-color:rgba(122,184,232,0.3);}
 .sec-white .card{background:#F0F0F5;border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:2rem;transition:transform 0.2s;}
 .sec-white .card:hover{transform:translateY(-4px);}
-.card-num{font-family:"Orbitron",sans-serif;font-size:2.5rem;font-weight:900;line-height:1;margin-bottom:1rem;}
-.sec-dark .card-num{color:rgba(255,255,255,0.07);}
-.sec-white .card-num{color:rgba(0,0,0,0.06);}
+.card-icon{font-size:2rem;margin-bottom:1rem;display:block;}
 .card-title{font-size:1.05rem;font-weight:700;margin-bottom:0.6rem;}
 .sec-dark .card-title{color:var(--white);}
 .sec-white .card-title{color:var(--black);}
 .card-desc{font-size:0.95rem;line-height:1.7;}
 .sec-dark .card-desc{color:var(--silver);}
 .sec-white .card-desc{color:#555566;}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:3rem;position:relative;}
+.step{padding:2rem;text-align:center;position:relative;}
+.sec-white .step{border-right:1px solid rgba(0,0,0,0.08);}
+.sec-white .step:last-child{border-right:none;}
+.step-num{font-family:"Orbitron",sans-serif;font-size:3rem;font-weight:900;color:rgba(122,184,232,0.2);display:block;line-height:1;margin-bottom:0.8rem;}
+.step-title{font-size:1rem;font-weight:700;margin-bottom:0.5rem;}
+.sec-white .step-title{color:var(--black);}
+.step-desc{font-size:0.9rem;line-height:1.65;}
+.sec-white .step-desc{color:#555566;}
 
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .check-list{list-style:none;display:flex;flex-direction:column;gap:0.9rem;margin-top:2rem;}
@@ -99,7 +103,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .term-blue{color:var(--blue);}
 .term-cursor::after{content:"█";animation:blink 1s infinite;color:var(--blue);}
 
-.price-wrap{max-width:480px;margin:3rem auto 0;}
+/* TESTIMONIALS */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem;}
+.tcard{background:#1A1A1E;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:2rem;}
+.tcard-text{font-size:1rem;color:var(--silver);line-height:1.7;font-style:italic;margin-bottom:1.2rem;}
+.tcard-author{font-size:0.8rem;font-weight:700;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;}
+
+/* PRICE */
+.price-wrap{max-width:500px;margin:3rem auto 0;}
 .price-card{background:#111114;border:2px solid rgba(122,184,232,0.25);border-radius:16px;padding:3rem;text-align:center;position:relative;overflow:hidden;}
 .price-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--blue),transparent);}
 .price-badge-pill{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;background:var(--blue);color:var(--black);padding:0.4rem 1.2rem;border-radius:100px;margin-bottom:1.5rem;}
@@ -115,12 +126,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .btn-price:hover{background:var(--blue);color:var(--white);transform:translateY(-2px);}
 .btn-ghost{display:block;font-size:0.78rem;color:var(--grey);text-decoration:none;margin-top:0.9rem;text-align:center;}
 
-.btn-section{display:inline-block;font-size:1rem;font-weight:800;letter-spacing:0.03em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;border-radius:6px;transition:all 0.2s;margin-top:2rem;}
-.sec-dark .btn-section{background:var(--white);color:var(--black);}
-.sec-dark .btn-section:hover{background:var(--blue);color:var(--white);}
-.sec-white .btn-section{background:var(--black);color:var(--white);}
-.sec-white .btn-section:hover{background:#3A7AAA;}
+.btn-cta{display:inline-block;font-size:1rem;font-weight:800;letter-spacing:0.03em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;border-radius:6px;transition:all 0.2s;margin-top:2rem;}
+.sec-dark .btn-cta{background:var(--white);color:var(--black);}
+.sec-dark .btn-cta:hover{background:var(--blue);color:var(--white);}
+.sec-white .btn-cta{background:var(--black);color:var(--white);}
+.sec-white .btn-cta:hover{background:#3A7AAA;}
 
+/* FAQ */
 .faq-list{max-width:720px;margin:2.5rem auto 0;}
 .faq-item{padding:1.4rem 0;}
 .sec-dark .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);}
@@ -135,20 +147,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;ali
 .sec-white .faq-a{color:#555566;}
 .faq-item.open .faq-a{max-height:300px;padding-top:1rem;}
 
-.final{background:var(--black);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
+/* FINAL */
+.final{background:var(--black);padding:7rem 2rem;text-align:center;position:relative;overflow:hidden;}
 .final::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60vw;height:60vw;background:radial-gradient(ellipse,rgba(122,184,232,0.06) 0%,transparent 65%);pointer-events:none;}
 .final h2{font-family:"Orbitron",sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:1rem;}
 .final h2 span{color:var(--blue);}
 .final p{font-size:1.05rem;color:var(--silver);margin-bottom:2.5rem;max-width:44ch;margin-left:auto;margin-right:auto;line-height:1.7;}
 
+.divider{display:flex;align-items:center;gap:1.5rem;padding:0 2rem;opacity:0.12;}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--white);}
+.divider span{font-size:0.6rem;letter-spacing:0.3em;color:var(--white);}
+
 footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .footer-logo{font-family:"Orbitron",sans-serif;font-size:0.82rem;font-weight:700;color:var(--silver);letter-spacing:0.15em;}
 .footer-copy{font-size:0.72rem;color:var(--grey);}
 .legal{font-size:0.65rem;color:var(--grey);text-align:center;padding:0.8rem 2rem 1.2rem;border-top:1px solid rgba(255,255,255,0.05);}
-
-.divider{display:flex;align-items:center;gap:1.5rem;padding:0 2rem;opacity:0.12;}
-.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--white);}
-.divider span{font-size:0.6rem;letter-spacing:0.3em;color:var(--white);}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
@@ -161,6 +174,8 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
   .two-col{grid-template-columns:1fr;gap:2.5rem;}
   .hero-stats{gap:1.5rem;}
   .sec{padding:4rem 1.5rem;}
+  .steps{grid-template-columns:1fr;}
+  .sec-white .step{border-right:none;border-bottom:1px solid rgba(0,0,0,0.08);}
   footer{flex-direction:column;text-align:center;}
 }
 ```
@@ -180,20 +195,21 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
 <!-- HERO DARK -->
 
 <section class="hero">
-  <span class="hero-badge">Bot IA actif 24h/24 · Coupe du Monde 2026</span>
-  <h1>Le Bot qui Analyse<br><span>à Ta Place.</span></h1>
+  <span class="hero-badge">Intelligence Artificielle · Analyse Sportive · Temps Réel</span>
+  <h1>Arrête de Regarder.<br><span>Commence à Analyser.</span></h1>
   <p class="hero-sub">
-    Pendant la Coupe du Monde, <strong>104 matchs vont se jouer.</strong><br>
-    Notre bot analyse chaque donnée en temps réel et t'envoie des alertes directement sur Telegram.
+    <strong>90% des gens décident avec leurs émotions.</strong><br>
+    Notre bot analyse les données à leur place —<br>
+    et t'envoie des alertes directement sur Telegram.
   </p>
   <div class="hero-cta-group">
     <a href="#pricing" class="btn-hero">Accéder au Bot — 9,90€/mois</a>
     <span class="btn-hero-sub">✓ Accès immédiat · Sans engagement · Annulable à tout moment</span>
   </div>
   <div class="hero-stats">
-    <div class="hstat"><span class="hstat-val">104</span><span class="hstat-label">Matchs analysés</span></div>
     <div class="hstat"><span class="hstat-val">24/7</span><span class="hstat-label">Bot actif</span></div>
     <div class="hstat"><span class="hstat-val">&lt;2s</span><span class="hstat-label">Temps d'alerte</span></div>
+    <div class="hstat"><span class="hstat-val">100%</span><span class="hstat-label">Sans émotion</span></div>
     <div class="hstat"><span class="hstat-val">9,90€</span><span class="hstat-label">Par mois</span></div>
   </div>
 </section>
@@ -203,63 +219,52 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
 <div class="proof-strip reveal">
   <p class="proof-text">Rejoins <span>+100 membres actifs</span> qui reçoivent déjà les alertes en temps réel</p>
 </div>
-<div class="urgency reveal">
-  <p>⚡ Coupe du Monde 2026 — Le bot sera actif dès le 11 juin. Rejoins maintenant.</p>
-</div>
 
-<!-- COMMENT ÇA MARCHE — WHITE -->
+<!-- PROBLÈME — WHITE -->
 
 <section class="sec sec-white">
   <div class="sec-inner">
     <div class="sec-center reveal">
-      <span class="sec-label">Comment ça marche</span>
-      <h2 class="sec-title">Simple. Rapide. Efficace.</h2>
-      <p class="sec-sub">Tu n'as pas besoin d'être un expert. Le bot fait tout le travail. Toi, tu reçois l'alerte et tu décides.</p>
+      <span class="sec-label">Le problème</span>
+      <h2 class="sec-title">Le cerveau humain n'est pas fait pour ça.</h2>
+      <p class="sec-sub">Les biais cognitifs, l'euphorie, la peur de perdre — tout ça sabote les décisions. Le bot, lui, ne ressent rien. Il calcule.</p>
     </div>
     <div class="cards reveal">
       <div class="card">
-        <div class="card-num">01</div>
-        <div class="card-title">Tu rejoins le groupe Telegram</div>
-        <p class="card-desc">En moins de 60 secondes après le paiement, tu reçois ton lien d'accès. Tu es dans le groupe immédiatement.</p>
+        <span class="card-icon">🧠</span>
+        <div class="card-title">Biais de confirmation</div>
+        <p class="card-desc">Tu vois ce que tu veux voir. Tu ignores ce qui contredit ton instinct. Le bot analyse tout, sans filtre.</p>
       </div>
       <div class="card">
-        <div class="card-num">02</div>
-        <div class="card-title">Le bot analyse en continu</div>
-        <p class="card-desc">Notre IA surveille les données de chaque match 24h/24, 7j/7. Sans jamais s'arrêter.</p>
+        <span class="card-icon">😰</span>
+        <div class="card-title">Décisions sous pression</div>
+        <p class="card-desc">La pression du moment déforme le jugement. Le bot prend la même décision à 14h ou à 23h, sous pression ou non.</p>
       </div>
       <div class="card">
-        <div class="card-num">03</div>
-        <div class="card-title">Tu reçois une alerte</div>
-        <p class="card-desc">Quand le bot détecte une opportunité de haute qualité, il t'envoie une alerte claire directement sur Telegram.</p>
+        <span class="card-icon">📉</span>
+        <div class="card-title">Réactions émotionnelles</div>
+        <p class="card-desc">Une mauvaise journée change tout. Le bot ne réagit pas aux résultats d'hier. Il analyse aujourd'hui.</p>
       </div>
-      <div class="card">
-        <div class="card-num">04</div>
-        <div class="card-title">Tu décides. Toi seul.</div>
-        <p class="card-desc">Le bot analyse. La décision finale t'appartient toujours. Nous fournissons l'intelligence, pas les ordres.</p>
-      </div>
-    </div>
-    <div style="text-align:center;">
-      <a href="#pricing" class="btn-section sec-white reveal" style="background:var(--black);color:var(--white);display:inline-block;margin-top:2.5rem;">Je veux accéder au bot →</a>
     </div>
   </div>
 </section>
 
 <div class="divider reveal"><span>◆</span></div>
 
-<!-- BOT EN ACTION — DARK -->
+<!-- SOLUTION — DARK -->
 
 <section class="sec sec-dark">
   <div class="sec-inner">
     <div class="two-col">
       <div class="reveal">
-        <span class="sec-label">Le bot en action</span>
-        <h2 class="sec-title">Tu vois exactement ce que le bot voit.</h2>
-        <p class="sec-sub">Chaque alerte contient l'analyse complète : le match, l'opportunité détectée, le niveau de confiance et la recommandation.</p>
+        <span class="sec-label">La solution</span>
+        <h2 class="sec-title">Un cerveau artificiel qui ne dort jamais.</h2>
+        <p class="sec-sub">Le Q.Vargas Bot analyse en continu les données des événements sportifs. Il détecte les opportunités que l'œil humain rate. Il t'alerte en temps réel.</p>
         <ul class="check-list">
-          <li>Alerte envoyée en moins de 2 secondes</li>
-          <li>Analyse complète avec chaque signal</li>
-          <li>Niveau de confiance calculé par l'IA</li>
-          <li>Actif pendant toute la Coupe du Monde</li>
+          <li>Analyse statistique pure — zéro émotion</li>
+          <li>Alerte directe sur Telegram en moins de 2 secondes</li>
+          <li>Actif 24h/24, 7j/7, sans interruption</li>
+          <li>Raisonnement complet fourni avec chaque alerte</li>
         </ul>
       </div>
       <div class="terminal reveal">
@@ -268,8 +273,8 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
           <span class="term-title-bar">QVARGAS_BOT · EN DIRECT</span>
         </div>
         <div class="term-body">
-          <div><span class="term-dim">20:14:03</span> <span class="term-green">► ALERTE DÉTECTÉE</span></div>
-          <div><span class="term-dim">20:14:03</span> Match : <span class="term-silver">France vs Brésil</span></div>
+          <div><span class="term-dim">20:14:03</span> <span class="term-green">► SIGNAL DÉTECTÉ</span></div>
+          <div><span class="term-dim">20:14:03</span> Événement : <span class="term-silver">Lyon vs Monaco</span></div>
           <div><span class="term-dim">20:14:04</span> Marché : <span class="term-silver">Total buts +2.5</span></div>
           <div><span class="term-dim">20:14:04</span> Confiance IA : <span class="term-blue">84%</span></div>
           <div><span class="term-dim">20:14:05</span> Mise suggérée : <span class="term-silver">3 unités</span></div>
@@ -284,73 +289,123 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
 
 <div class="divider reveal"><span>◆</span></div>
 
-<!-- POURQUOI — WHITE -->
+<!-- COMMENT ÇA MARCHE — WHITE -->
 
 <section class="sec sec-white">
   <div class="sec-inner">
     <div class="sec-center reveal">
-      <span class="sec-label">Pourquoi ça marche</span>
-      <h2 class="sec-title">Ce n'est pas de la chance.<br>C'est de la donnée.</h2>
-      <p class="sec-sub">La différence entre ceux qui perdent et ceux qui s'en sortent tient à une seule chose : la méthode.</p>
+      <span class="sec-label">Comment ça marche</span>
+      <h2 class="sec-title">4 étapes. C'est tout.</h2>
+      <p class="sec-sub">Pas besoin d'être expert. Le bot fait le travail. Toi, tu reçois l'alerte et tu décides.</p>
     </div>
-    <div class="cards reveal">
-      <div class="card">
-        <div class="card-title">📊 Analyse statistique pure</div>
-        <p class="card-desc">Le bot ne ressent pas d'émotions. Il calcule, compare et détecte les opportunités que l'œil humain rate systématiquement.</p>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-title">Tu rejoins le groupe</div>
+        <p class="step-desc">Paiement → lien Telegram → accès immédiat. En moins de 60 secondes tu es dans le groupe.</p>
       </div>
-      <div class="card">
-        <div class="card-title">⚡ Temps réel</div>
-        <p class="card-desc">Les meilleures opportunités durent quelques secondes. Le bot les capture avant tout le monde et t'alerte immédiatement.</p>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-title">Le bot analyse</div>
+        <p class="step-desc">24h/24, le bot surveille les données de chaque événement sportif. Sans jamais s'arrêter.</p>
       </div>
-      <div class="card">
-        <div class="card-title">🎯 Discipline absolue</div>
-        <p class="card-desc">Pas d'euphorie. Pas de panique. La méthode reste identique même pendant les matchs les plus intenses.</p>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-title">Tu reçois une alerte</div>
+        <p class="step-desc">Signal détecté → alerte Telegram en 2 secondes. Marché, confiance IA, mise suggérée. Tout est là.</p>
       </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-title">Tu décides.</div>
+        <p class="step-desc">Le bot analyse. La décision t'appartient toujours. Nous fournissons l'intelligence — pas les ordres.</p>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="#pricing" class="btn-cta sec-white reveal" style="background:var(--black);color:var(--white);display:inline-block;margin-top:2.5rem;">Je veux accéder au bot →</a>
     </div>
   </div>
 </section>
 
 <div class="divider reveal"><span>◆</span></div>
 
-<!-- COPA — DARK -->
+<!-- POURQUOI Q.VARGAS — DARK -->
 
 <section class="sec sec-dark">
   <div class="sec-inner">
     <div class="sec-center reveal">
-      <span class="sec-label">Coupe du Monde 2026</span>
-      <h2 class="sec-title">104 matchs.<br>Un seul bot qui ne dort jamais.</h2>
-      <p class="sec-sub" style="margin:0 auto 3rem;">Du 11 juin au 19 juillet — le plus grand événement sportif de la planète. Et le plus grand volume de données à analyser de l'histoire.</p>
+      <span class="sec-label">Pourquoi Q.Vargas</span>
+      <h2 class="sec-title">Les données ne mentent pas.<br>Les émotions, si.</h2>
+      <p class="sec-sub">Q.Vargas n'est pas un tipster. C'est un système d'analyse quantitative qui traite les marchés sportifs comme une discipline — pas comme un jeu.</p>
     </div>
     <div class="cards reveal">
       <div class="card">
-        <div class="card-title">📅 11 Juin — Coup d'envoi</div>
-        <p class="card-desc">Match d'ouverture au stade Azteca, Mexico. Le bot est actif dès la première minute du premier match.</p>
+        <span class="card-icon">📊</span>
+        <div class="card-title">Analyse quantitative pure</div>
+        <p class="card-desc">Régression statistique, modélisation prédictive, analyse des flux de données. Le même niveau d'analyse que les professionnels de la finance.</p>
       </div>
       <div class="card">
-        <div class="card-title">🌍 48 Équipes</div>
-        <p class="card-desc">La plus grande Copa du Monde de l'histoire. Plus d'équipes = plus de données = plus d'opportunités analysées.</p>
+        <span class="card-icon">⚡</span>
+        <div class="card-title">Vitesse d'exécution</div>
+        <p class="card-desc">Les meilleures opportunités durent quelques secondes. Le bot les capture avant tout le monde et t'alerte immédiatement.</p>
       </div>
       <div class="card">
-        <div class="card-title">🏆 19 Juillet — Finale</div>
-        <p class="card-desc">MetLife Stadium, New York. 39 jours d'analyses non-stop. Le bot ne s'arrête jamais.</p>
+        <span class="card-icon">🎯</span>
+        <div class="card-title">Discipline absolue</div>
+        <p class="card-desc">La méthode ne change jamais. Pas d'euphorie, pas de panique. Le même protocole rigoureux, chaque jour, chaque événement.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔒</span>
+        <div class="card-title">Groupe privé exclusif</div>
+        <p class="card-desc">Accès à une communauté qui partage la même approche. Échanges de niveau. Analyses exclusives de Q.Vargas en complément du bot.</p>
       </div>
     </div>
     <div style="text-align:center;">
-      <a href="#pricing" class="btn-section reveal">Je veux les alertes dès le 11 juin →</a>
+      <a href="#pricing" class="btn-cta sec-dark reveal">Rejoindre le groupe →</a>
     </div>
   </div>
 </section>
 
 <div class="divider reveal"><span>◆</span></div>
 
-<!-- PRICING — WHITE -->
+<!-- TÉMOIGNAGES — WHITE -->
 
-<section class="sec sec-white" id="pricing">
+<section class="sec sec-white">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <span class="sec-label">Ils sont déjà dans le groupe</span>
+      <h2 class="sec-title">Ce qu'ils disent.</h2>
+    </div>
+    <div class="testimonials reveal">
+      <div class="tcard">
+        <p class="tcard-text">"Je tenais à te remercier pour le travail que tu fais. La qualité de tes analyses et ta constance font vraiment la différence. C'est rare de voir quelqu'un d'aussi sérieux, donc merci pour ça"</p>
+        <span class="tcard-author">— Membre</span>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">"Je me suis amusé ce matin à calculer mes bénéfices si je me place sur tous les pings de ton bot qui arrivent au moins 10 min après le but précédent et en partant du principe qu'on joue 1% de bankroll à chaque fois. J'ai calculé une augmentation de bankroll de 10,35%. Je trovais intéressant de voir à quel point on peut faire confiance."</p>
+        <span class="tcard-author">— Membre</span>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">"9,90€ par mois pour un bot qui analyse 24h/24. Le calcul est simple. C'est le meilleur investissement que j'ai fait dans ce domaine."</p>
+        <span class="tcard-author">— Membre</span>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">"Je suis pas déçu d'être venu vers toi, honnêtement tu et un des meilleurs actuellement passioné et intelligent."</p>
+        <span class="tcard-author">— Membre</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal"><span>◆</span></div>
+
+<!-- PRICING — DARK -->
+
+<section class="sec sec-dark" id="pricing">
   <div class="sec-inner">
     <div class="sec-center reveal">
       <span class="sec-label">Accès</span>
       <h2 class="sec-title">Moins que ton café du matin.</h2>
-      <p class="sec-sub">9,90€ par mois. Accès complet au bot, aux alertes et au groupe Telegram privé.</p>
+      <p class="sec-sub">9,90€ par mois. Bot IA + alertes live + groupe Telegram privé + analyses exclusives.</p>
     </div>
     <div class="price-wrap reveal">
       <div class="price-card">
@@ -359,9 +414,10 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
         <p class="price-desc">Sans engagement · Annulable à tout moment</p>
         <ul class="price-list">
           <li>Bot IA · Alertes live 24/7</li>
-          <li>Actif pendant toute la Coupe du Monde</li>
-          <li>Groupe Telegram privé</li>
-          <li>Analyse complète sur chaque alerte</li>
+          <li>Analyse complète sur chaque signal</li>
+          <li>Groupe Telegram privé exclusif</li>
+          <li>Analyses complémentaires de Q.Vargas</li>
+          <li>Archives de tous les signaux passés</li>
           <li>Accès immédiat après paiement</li>
         </ul>
         <a href="https://launchpass.com/qvargas" class="btn-price">Rejoindre maintenant →</a>
@@ -373,9 +429,9 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
 
 <div class="divider reveal"><span>◆</span></div>
 
-<!-- FAQ — DARK -->
+<!-- FAQ — WHITE -->
 
-<section class="sec sec-dark">
+<section class="sec sec-white">
   <div class="sec-inner">
     <div class="sec-center reveal">
       <span class="sec-label">Questions fréquentes</span>
@@ -388,11 +444,11 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">Combien d'alertes je reçois par semaine ?</div>
-        <div class="faq-a">Ça dépend du calendrier sportif. Le bot n'envoie une alerte que quand les conditions sont réunies. Pendant la Coupe du Monde, le volume sera significativement plus élevé.</div>
+        <div class="faq-a">Variable selon le calendrier sportif et la qualité des opportunités détectées. Le bot n'envoie une alerte que lorsque les conditions sont réunies. La qualité prime toujours sur le volume.</div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">Je dois être expert pour utiliser ça ?</div>
-        <div class="faq-a">Pas du tout. Le bot fait tout le travail d'analyse. Tu reçois une alerte claire avec toutes les informations. La décision finale reste toujours la tienne.</div>
+        <div class="faq-a">Pas du tout. Le bot fait tout le travail d'analyse. Tu reçois une alerte claire avec toutes les informations nécessaires. La décision finale reste toujours la tienne.</div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">Puis-je annuler à tout moment ?</div>
@@ -406,12 +462,12 @@ footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);display:flex;jus
   </div>
 </section>
 
-<!-- FINAL CTA — DARK -->
+<!-- FINAL CTA -->
 
 <div class="final">
-  <h2 class="reveal">Pendant la Coupe du Monde,<br><span>le bot ne dort jamais.</span></h2>
-  <p class="reveal">104 matchs. 39 jours. Des milliers de données analysées en temps réel.<br>Tu veux être dans le groupe ou regarder depuis l'extérieur ?</p>
-  <a href="#pricing" class="btn-hero reveal">Rejoindre — 9,90€/mois</a>
+  <h2 class="reveal">Les données ne mentent pas.<br><span>Les émotions, si.</span></h2>
+  <p class="reveal">Rejoins le groupe. Reçois les alertes.<br>Décide avec l'intelligence — pas avec l'instinct.</p>
+  <a href="#pricing" class="btn-hero reveal">Rejoindre maintenant — 9,90€/mois</a>
   <p style="margin-top:1rem;font-size:0.8rem;color:var(--grey);" class="reveal">✓ Accès immédiat · Sans engagement · Annulable à tout moment</p>
 </div>
 
